@@ -1,0 +1,51 @@
+body {
+  margin: 0;
+  font-family: Poppins;
+  background-color: #f2f2f7;
+}
+
+.rounded-ellipse-right {
+  border-top-right-radius: 99999px;
+  border-bottom-right-radius: 99999px;
+}
+.rounded-ellipse-left {
+  border-top-left-radius: 99999px;
+  border-bottom-left-radius: 99999px;
+}
+.rounded-ellipse {
+  border-top-right-radius: 99999px;
+  border-bottom-right-radius: 99999px;
+  border-top-left-radius: 99999px;
+  border-bottom-left-radius: 99999px;
+}
+
+.rounded-3 {
+  border-radius: 20px;
+}
+
+.btn-primary {
+  background-color: #00a4ff;
+}
+
+.card-form {
+  margin-top: 10rem;
+}
+
+@media (min-width: 1200px) {
+  .container,
+  .container-lg,
+  .container-md,
+  .container-sm,
+  .container-xl {
+    max-width: 1096px;
+  }
+}
+
+.h-64 {
+  height: 64px;
+}
+
+.px-6 {
+  padding-left: 4.5rem;
+  padding-right: 4.5rem;
+}

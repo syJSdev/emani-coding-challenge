@@ -1,0 +1,36 @@
+{
+  "parser": "@babel/eslint-parser",
+  "extends": [
+    "standard",
+    "standard-react",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
+    "plugin:prettier/recommended",
+    "plugin:promise/recommended"
+  ],
+  "plugins": [
+    "promise",
+    "react",
+    "react-hooks",
+    "prettier",
+    "jsx-a11y"
+  ],
+  "env": {
+    "browser": true,
+    "node": true,
+    "es6": true
+  },
+  "settings": {
+    "react": {
+      "version": "17"
+    }
+  },
+  "overrides": [
+    {
+      "files": ["./src/**/*.{test,spec}.js"],
+      "env": {
+        "jest": true
+      }
+    }
+  ]
+}

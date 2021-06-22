@@ -33,21 +33,27 @@ const ScheduleForm = () => {
   const handleSubmit = (event) => {
     event.preventDefault()
 
+    // countries.json's dial_code contains spaces
+    // so remove it before use
     const countryDialCode = (country?.item?.dial_code || '').replace(
       /[^0-9+]/,
       ''
     )
+    // if countryDialCode is not set
     if (!countryDialCode) {
       setErrorMsg('Country code is required.')
       return
     }
+    // if phoneNumber is not set
     if (!phoneNumber) {
       setErrorMsg('Phone number is required.')
       return
     }
 
+    // all fields are set, remove the validation error message
     setErrorMsg('')
 
+    // then call api
     api('/mit/public/send/number', {
       method: 'POST',
       payload: {
@@ -55,10 +61,12 @@ const ScheduleForm = () => {
       }
     })
       .then(() => {
+        // if request is succeeded
         showSuccess('Your request is submitted')
         return true
       })
       .catch((error) => {
+        // if request is failed
         showError(error.message)
         return false
       })

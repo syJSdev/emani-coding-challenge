@@ -7,6 +7,7 @@
 export async function api(path, options) {
   const url = new URL(
     path,
+    // can replace with process.env
     'https://od80h16jwh.execute-api.us-east-2.amazonaws.com'
   )
 
@@ -14,8 +15,10 @@ export async function api(path, options) {
   const method = options?.method ?? 'GET'
   const fetchOptions = { method }
 
+  // content type header
   headers.append('Content-Type', 'application/json')
   if (options?.payload) {
+    // request body
     fetchOptions.body = JSON.stringify(options.payload)
   }
 
@@ -29,9 +32,17 @@ export async function api(path, options) {
     // ignore parse error
   }
 
+  // if respond with 50x, 40x
   if (!response.ok) {
+    // generate the error message
     let errorMessage = `[${response.status}]: ${response.statusText}`
 
+    // {
+    //   "code": "400",
+    //   "type": "Request Failed",
+    //   "meaning": "Client Error, Bad Request Payload",
+    //   "message": "phone_number is required"
+    // }
     if (data && data.type) errorMessage = data.type
     if (data && data.meaning) errorMessage = data.meaning
     if (data && data.message) errorMessage = data.message

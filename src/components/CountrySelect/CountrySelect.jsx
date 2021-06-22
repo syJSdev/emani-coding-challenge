@@ -22,6 +22,7 @@ const CountrySelect = ({
   const [dropdownOpen, setDropdownOpen] = useState(false)
   const toggle = () => setDropdownOpen((prevState) => !prevState)
 
+  // add the icon attribute to the each items and get selected and defaultSelected item
   const { items, selected, defaultSelected } = countries.reduce(
     (acc, item) => {
       const extendedItem = {
@@ -51,6 +52,7 @@ const CountrySelect = ({
 
   return (
     <Dropdown className={className} isOpen={dropdownOpen} toggle={toggle}>
+      {/* Dropdown toggle button */}
       <DropdownToggle
         className="w-100 h-100 text-left position-relative text-dark px-3"
         outline>
@@ -67,6 +69,7 @@ const CountrySelect = ({
           <ArrowDown height={10} width={10} />
         </span>
       </DropdownToggle>
+      {/* Dropdown menu */}
       <DropdownMenu
         container="body"
         modifiers={{

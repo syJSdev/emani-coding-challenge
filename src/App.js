@@ -6,9 +6,12 @@ import { NotificationsProvider } from 'modules'
 
 function App() {
   return (
-    <NotificationsProvider>
-      <div className="emani-app">
+    <div id="emani-app-conatiner">
+      {/* Notification provider */}
+      <NotificationsProvider>
+        {/* Nav */}
         <Navbar />
+        {/* Page title */}
         <div className="position-relative py-4">
           <div className="position-absolute left-0 top-0">
             <div className="bg-white rounded-ellipse-right px-6 py-3">
@@ -18,11 +21,12 @@ function App() {
             </div>
           </div>
         </div>
+        {/* Page content */}
         <Container className="card-form card-container">
           <ScheduleForm />
         </Container>
-      </div>
-    </NotificationsProvider>
+      </NotificationsProvider>
+    </div>
   )
 }
 

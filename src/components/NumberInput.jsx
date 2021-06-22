@@ -14,6 +14,7 @@ const NumberInput = ({
     onChange(number, event)
   }
 
+  // prevent the keydown event if inputed charactor is not a number
   const handleKeyDown = (event) => {
     if (!/^[0-9]{1}$/.test(event.key)) event.preventDefault()
   }
